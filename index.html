@@ -6,9 +6,9 @@
   <title>Albain Restaurant | Coming Soon</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -21,6 +21,11 @@
 
     h1, h2, h3 {
       font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
+    }
+
+    a {
+      text-decoration: none; /* Remove underlines */
     }
 
     /* PRELOADER */
@@ -28,7 +33,7 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: #233e2d;
+      background: #e4d6c7;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -36,7 +41,7 @@
     }
     .utensil-icon {
       font-size: 60px;
-      color: #e4d6c7;
+      color: #233e2d;
       animation: pulse 1s infinite;
     }
     @keyframes pulse {
@@ -44,7 +49,7 @@
       50% { transform: scale(1.2); opacity: 0.7; }
     }
 
-    /* HERO SECTION */
+    /* HERO */
     .hero {
       position: relative;
       height: 100vh;
@@ -65,7 +70,7 @@
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.7); /* Dark overlay */
+      background: rgba(0,0,0,0.5);
       z-index: -1;
     }
     .hero-content {
@@ -79,75 +84,160 @@
       color: #fff;
       padding: 20px;
     }
+
+    /* HERO LOGO */
     .hero-content img {
-      max-width: 300px; /* Increased logo size */
+      max-width: 400px; /* increased size */
       margin-bottom: 20px;
+      cursor: pointer;
+      opacity: 0; /* hidden initially */
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
     }
+    .hero-content img:hover {
+      transform: scale(1.05);
+    }
+    .hero-content img.show {
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    /* HERO TITLE CLEAN MINIMAL */
     .hero-content h1 {
-      font-size: 2.5rem;
+      font-family: 'Poppins', sans-serif; /* modern minimal font */
+      font-size: 3rem;
+      font-weight: 600;
       margin: 0;
+      color: #ffffff; /* simple white text */
+      opacity: 0; /* initially hidden for animation */
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      text-align: center;
+    }
+    .hero-content h1.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* ORDER SECTION */
     .order-section {
-      padding: 50px 20px;
+      padding: 70px 20px;
       text-align: center;
-      background: #fff;
+      background: #e4d6c7;
     }
     .order-section h2 {
-      margin-bottom: 30px;
-      font-size: 1.8rem;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
       color: #233e2d;
     }
-    .order-buttons {
+    .order-logos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      gap: 30px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .order-logo {
+      position: relative;
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      max-width: 300px;
-      margin: auto;
+      align-items: center;
+      cursor: pointer;
+      width: 90px;
     }
-    .order-buttons a {
-      text-decoration: none;
-      background: #233e2d;
-      color: #e4d6c7;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: background 0.3s;
+    .order-logo img {
+      width: 100%;
+      transition: transform 0.5s ease, filter 0.5s ease;
     }
-    .order-buttons a:hover {
-      background: #1a2f22;
+    .order-logo:hover img {
+      transform: scale(1.2) rotate(5deg);
+      filter: drop-shadow(0px 6px 8px rgba(0,0,0,0.3));
+    }
+
+    .order-btn {
+      margin-top: 10px;
+      background: #28a745; /* green color */
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .order-logo:hover .order-btn {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
 
     /* CONTACT SECTION */
     .contact-section {
-      padding: 50px 20px;
-      text-align: center;
-      background: #233e2d;
-      color: #e4d6c7;
+      padding: 60px 20px;
+      display: flex;
+      justify-content: center;
+      background: #20382f; /* dark green background */
     }
+
     .contact-box {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
-      border: 1px solid #e4d6c7;
-      border-radius: 10px;
-      padding: 20px;
+      justify-content: space-between;
+      gap: 50px;
       max-width: 900px;
-      margin: auto;
+      width: 100%;
+      padding: 30px 40px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      background: #20382f; /* keep same as section for unified look */
+      color: #e5c47a; /* gold headings */
+      flex-wrap: wrap;
     }
+
+    .contact-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* center text for each column */
+      gap: 10px;
+      min-width: 180px;
+    }
+
     .contact-column h3 {
-      margin-bottom: 10px;
       font-weight: bold;
-      color: #e4d06c;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: #e5c47a; /* gold heading color */
     }
+
+    .contact-column p {
+      font-size: 1rem;
+      color: #ffffff; /* white text */
+      margin: 0;
+      text-align: center;
+    }
+    /* Contact links styling */
     .contact-column a {
-      color: #e4d6c7;
-      text-decoration: none;
-      transition: color 0.3s;
+      color: #fff5e1; /* cream color */
+      text-decoration: none; /* remove underline */
+      transition: color 0.3s ease;
     }
+
     .contact-column a:hover {
-      color: #e4d06c;
+      color: #e5c47a; /* optional hover: gold */
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 768px) {
+      .contact-box {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+      }
     }
 
     /* FOOTER */
@@ -159,13 +249,17 @@
       font-size: 0.9rem;
     }
 
-    /* Larger Screens */
-    @media (min-width: 768px) {
-      .hero-content h1 { font-size: 3.5rem; }
-      .hero-content img { max-width: 400px; } /* Larger logo on desktop */
-      .order-buttons { flex-direction: row; max-width: 600px; }
-      .order-buttons a { flex: 1; }
-      .contact-box { flex-direction: row; justify-content: space-around; }
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2.5rem; }
+      .hero-content img { max-width: 320px; }
+      .order-logo { width: 90px; }
+      .contact-box { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-content h1 { font-size: 2rem; }
+      .hero-content img { max-width: 260px; }
     }
   </style>
 </head>
@@ -178,27 +272,33 @@
     </div>
   </div>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
     <video autoplay muted loop playsinline>
-      <source src="assets/imgs/8477339-hd_1080_1920_24fps.mp4" type="video/mp4">
+      <source src="assets/imgs/7008572-hd_1080_1920_25fps.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
-      <img src="assets/imgs/Screenshot_2025-08-25_145916-removebg-preview.png" alt="Albain Restaurant Logo">
+      <img src="assets/imgs/Screenshot_2025-08-25_145916-removebg-preview.png" alt="Albain Restaurant Logo" id="logo">
       <h1>Our Website is Cooking...</h1>
     </div>
   </section>
 
   <!-- ORDER SECTION -->
-  <section class="order-section">
-    <h2>Order Your Meal</h2>
-    <div class="order-buttons">
-     <div class="order-buttons">
-  <a href="https://www.zomato.com/bangalore/al-bain-restaurant-kammanahalli-bangalore" target="_blank" rel="noopener">Order via Zomato</a>
-  <a href="https://www.swiggy.com/city/bangalore/al-bain-restaurant-kammanahalli-rest324085" target="_blank" rel="noopener">Order via Swiggy</a>
-  <a href="https://wa.me/917833833832?text=Hi%20Albain%20Restaurant,%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener">Order via WhatsApp</a>
-</div>
-
+  <section class="order-section" id="order">
+    <h2>Order Now</h2>
+    <div class="order-logos">
+      <a href="https://www.zomato.com/bangalore/al-bain-restaurant-kammanahalli-bangalore" target="_blank" rel="noopener" class="order-logo">
+        <img src="assets/imgs/zomato.png" alt="Order on Zomato">
+        <span class="order-btn">Order Now</span>
+      </a>
+      <a href="https://www.swiggy.com/city/bangalore/al-bain-restaurant-kammanahalli-rest324085" target="_blank" rel="noopener" class="order-logo">
+        <img src="assets/imgs/swiggy.png" alt="Order on Swiggy">
+        <span class="order-btn">Order Now</span>
+      </a>
+      <a href="https://wa.me/917833833832?text=Hi%20Albain%20Restaurant,%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener" class="order-logo">
+        <img src="assets/imgs/whatsapp.png" alt="Order on WhatsApp">
+        <span class="order-btn">Order Now</span>
+      </a>
     </div>
   </section>
 
@@ -215,8 +315,12 @@
         <p><a href="tel:+917833833832">+91 78338 33832</a></p>
       </div>
       <div class="contact-column">
-        <h3>Follow us</h3>
-        <p><a href="https://www.instagram.com/albainrestaurant" target="_blank" rel="noopener">@albainrestaurant</a></p>
+        <h3>Follow Us</h3>
+        <p>
+          <a href="https://www.instagram.com/albainrestaurant" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i> @albainrestaurant
+          </a>
+        </p>
       </div>
     </div>
   </section>
@@ -227,14 +331,24 @@
   </footer>
 
   <script>
-    // Dynamic year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Preloader hide after 5 seconds
     window.addEventListener("load", () => {
       setTimeout(() => {
         document.getElementById("preloader").style.display = "none";
-      }, 3000);
+
+        // Animate hero logo & title
+        const heroLogo = document.getElementById("logo");
+        const heroTitle = document.querySelector(".hero-content h1");
+        heroLogo.classList.add("show");
+        setTimeout(() => {
+          heroTitle.classList.add("show");
+        }, 300); // delay title for smoother staged entrance
+      }, 2000);
+    });
+
+    document.getElementById("logo").addEventListener("click", () => {
+      document.getElementById("order").scrollIntoView({ behavior: "smooth" });
     });
   </script>
 
