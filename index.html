@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Albain Restaurant | Coming Soon</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #e4d6c7;
+      color: #233e2d;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* PRELOADER */
+    #preloader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #233e2d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .utensil-icon {
+      font-size: 60px;
+      color: #e4d6c7;
+      animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.7; }
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
+    .hero video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7); /* Dark overlay */
+      z-index: -1;
+    }
+    .hero-content {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+    }
+    .hero-content img {
+      max-width: 300px; /* Increased logo size */
+      margin-bottom: 20px;
+    }
+    .hero-content h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    /* ORDER SECTION */
+    .order-section {
+      padding: 50px 20px;
+      text-align: center;
+      background: #fff;
+    }
+    .order-section h2 {
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      color: #233e2d;
+    }
+    .order-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 300px;
+      margin: auto;
+    }
+    .order-buttons a {
+      text-decoration: none;
+      background: #233e2d;
+      color: #e4d6c7;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .order-buttons a:hover {
+      background: #1a2f22;
+    }
+
+    /* CONTACT SECTION */
+    .contact-section {
+      padding: 50px 20px;
+      text-align: center;
+      background: #233e2d;
+      color: #e4d6c7;
+    }
+    .contact-box {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      border: 1px solid #e4d6c7;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .contact-column h3 {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #e4d06c;
+    }
+    .contact-column a {
+      color: #e4d6c7;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact-column a:hover {
+      color: #e4d06c;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #233e2d;
+      color: #e4d6c7;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+    }
+
+    /* Larger Screens */
+    @media (min-width: 768px) {
+      .hero-content h1 { font-size: 3.5rem; }
+      .hero-content img { max-width: 400px; } /* Larger logo on desktop */
+      .order-buttons { flex-direction: row; max-width: 600px; }
+      .order-buttons a { flex: 1; }
+      .contact-box { flex-direction: row; justify-content: space-around; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="utensil-icon">
+      <i class="fas fa-utensils"></i>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="assets/imgs/8477339-hd_1080_1920_24fps.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <img src="assets/imgs/Screenshot_2025-08-25_145916-removebg-preview.png" alt="Albain Restaurant Logo">
+      <h1>Our Website is Cooking...</h1>
+    </div>
+  </section>
+
+  <!-- ORDER SECTION -->
+  <section class="order-section">
+    <h2>Order Your Meal</h2>
+    <div class="order-buttons">
+     <div class="order-buttons">
+  <a href="https://www.zomato.com/bangalore/al-bain-restaurant-kammanahalli-bangalore" target="_blank" rel="noopener">Order via Zomato</a>
+  <a href="https://www.swiggy.com/city/bangalore/al-bain-restaurant-kammanahalli-rest324085" target="_blank" rel="noopener">Order via Swiggy</a>
+  <a href="https://wa.me/917833833832?text=Hi%20Albain%20Restaurant,%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener">Order via WhatsApp</a>
+</div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+    <div class="contact-box">
+      <div class="contact-column">
+        <h3>Branches</h3>
+        <p>Kammanahalli, Bangalore</p>
+        <p>Cherkala, Kasaragod</p>
+      </div>
+      <div class="contact-column">
+        <h3>Contact</h3>
+        <p><a href="tel:+917833833832">+91 78338 33832</a></p>
+      </div>
+      <div class="contact-column">
+        <h3>Follow us</h3>
+        <p><a href="https://www.instagram.com/albainrestaurant" target="_blank" rel="noopener">@albainrestaurant</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © <span id="year"></span> Al-bain Restaurant. All rights reserved.
+  </footer>
+
+  <script>
+    // Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Preloader hide after 5 seconds
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("preloader").style.display = "none";
+      }, 5000);
+    });
+  </script>
+
+</body>
+</html>
